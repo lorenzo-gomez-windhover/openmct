@@ -58,7 +58,8 @@ define([
     './newFolderAction/plugin',
     './persistence/couch/plugin',
     './defaultRootName/plugin',
-    './timeline/plugin'
+    './timeline/plugin',
+	'./simpleVuePlugin/plugin'
 ], function (
     _,
     UTCTimeSystem,
@@ -97,7 +98,8 @@ define([
     NewFolderAction,
     CouchDBPlugin,
     DefaultRootName,
-    Timeline
+    Timeline,
+	SimpleVuePlugin
 ) {
     const bundleMap = {
         LocalStorage: 'platform/persistence/local',
@@ -191,6 +193,7 @@ define([
     plugins.ISOTimeFormat = ISOTimeFormat.default;
     plugins.DefaultRootName = DefaultRootName.default;
     plugins.Timeline = Timeline.default;
+	plugins.SimpleVuePlugin = SimpleVuePlugin;
 
     return plugins;
 });
