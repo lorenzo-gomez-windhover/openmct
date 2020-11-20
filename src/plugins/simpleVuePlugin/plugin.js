@@ -17,7 +17,7 @@ function SimpleVuePlugin() {
             canView: function (d) {
                 console.log("d param value:", d);
 
-                return d.type === 'hello-world';
+                return d.type === 'example.telemetry';
             },
             view: function (domainObject) {
                 var vm;
