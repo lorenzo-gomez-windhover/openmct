@@ -91,36 +91,36 @@ function SimpleVuePlugin() {
     cssClass: 'icon-telemetry'
 });
     
-        // openmct.types.addType('hello-world', {
-        //     name: 'Hello World',
-        //     description: 'An introduction object',
+        openmct.types.addType('hello-world', {
+            name: 'Hello World',
+            description: 'An introduction object',
             
-        //     creatable: true
-        // });
-        // openmct.objectViews.addProvider({
-        //     name: "demo-provider",
-        //     key: "hello-world",
-        //     cssClass: "icon-packet",
-        //     canView: function (d) {
-        //         console.log("d param value:", d);
+            creatable: true
+        });
+        openmct.objectViews.addProvider({
+            name: "demo-provider",
+            key: "hello-world",
+            cssClass: "icon-packet",
+            canView: function (d) {
+                console.log("d param value:", d);
 
-        //         return d.type === 'example';
-        //     },
-        //     view: function (domainObject) {
-        //         var vm;
+                return d.type === 'hello-world';
+            },
+            view: function (domainObject) {
+                var vm;
 
-        //         return {
-        //             show: function (container) {
-        //                 vm = new Vue(HelloWorld);
-        //                 console.log("vue obj:", vm);
-        //                 container.appendChild(vm.$mount().$el);
-        //             },
-        //             destroy: function (container) {
-        //                 vm.$destroy();
-        //             }
-        //         };
-        //     }
-        // });
+                return {
+                    show: function (container) {
+                        vm = new Vue(HelloWorld);
+                        console.log("vue obj:", vm);
+                        container.appendChild(vm.$mount().$el);
+                    },
+                    destroy: function (container) {
+                        vm.$destroy();
+                    }
+                };
+            }
+        });
         
     openmct.objects.addProvider('example.taxonomy', objectProvider);
 
