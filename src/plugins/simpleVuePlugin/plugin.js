@@ -26,13 +26,20 @@ function SimpleVuePlugin() {
                     show: function (container) {
                         vm = new Vue(HelloWorld);
                         console.log("vue obj:", vm);
+
+                        var tlmUpdate = function(tlmValue) {vm.tlm  = tlmValue};
+                        openmct.telemetry.subscribe(domainObject, tlmUpdate, {});   
+
+
+                        // openmct.telemetry[0]
                         container.appendChild(vm.$mount().$el);
                     },
                     destroy: function (container) {
                         vm.$destroy();
                     }
                 };
-            }
+            },
+            
         });
         
 

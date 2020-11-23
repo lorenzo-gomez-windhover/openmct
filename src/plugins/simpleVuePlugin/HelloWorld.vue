@@ -1,12 +1,12 @@
 <template>
-<div class="example">{{ msg }}</div>
+<div class="example">{{ tlm }}</div>
 </template>
 
 <script>
 export default {
     data() {
         return {
-            msg: 'Hello world!'
+            tlm: ''
         };
     }
 };
