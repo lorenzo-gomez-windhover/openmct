@@ -1,7 +1,9 @@
 <template>
-<div class="example">id: {{ tlm.id }}</div>
-<div class="example">timestamp: {{ tlm.timestamp }}</div>
-<div class="example">value: {{ tlm.value }}</div>
+<div class="example">
+<div>id: {{ tlm.id }}</div>
+<div>timestamp: {{ tlm.timestamp }}</div>
+<div>value: {{ tlm.value }}</div>
+</div>
 </template>
 
 <script>
