@@ -26,9 +26,23 @@ function SimpleVuePlugin() {
                     show: function (container) {
                         vm = new Vue(HelloWorld);
                         console.log("vue obj:", vm);
+						
+						console.log("domainObject:");
+						
+						var commandCounterDomainObj = {};
+						var framesCounterDomainObj = {};
+						
+						commandCounterDomainObj.key = '~ocpoc~sch~SCH_HkPacket_t_param.CmdCounter';
+						commandCounterDomainObj.namespace = 'taxonomy';
+						
+						framesCounterDomainObj.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
+						framesCounterDomainObj.namespace = 'taxonomy';
+						
+                        var commandCounterUpdate = function(tlmValue) {vm.commandCounter  = tlmValue;};
+						var framesCountUpdate = function(tlmValue){vm.framesCounter = tlmValue};
 
-                        var tlmUpdate = function(tlmValue) {vm.tlm  = tlmValue};
-                        openmct.telemetry.subscribe(domainObject, tlmUpdate, {});   
+                        openmct.telemetry.subscribe(commandCounterDomainObj, commandCounterUpdate, {});
+						openmct.telemetry.subscribe(framesCounterDomainObj, framesCountUpdatem, {} );   
 
                         // openmct.telemetry[0]
                         container.appendChild(vm.$mount().$el);
