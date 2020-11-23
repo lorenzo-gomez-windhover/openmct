@@ -46,9 +46,12 @@ function SimpleVuePlugin() {
 						
                         var commandCounterUpdate = function(tlmValue) {vm.commandCounter  = tlmValue;};
 						var framesCountUpdate = function(tlmValue){vm.framesCounter = tlmValue};
+						
+						console.log("commandCounterDomainObj:", commandCounterDomainObj);
+						console.log("framesCounterDomainObj:", framesCounterDomainObj);
 
                         openmct.telemetry.subscribe(commandCounterDomainObj, commandCounterUpdate, {});
-						openmct.telemetry.subscribe(framesCounterDomainObj, framesCountUpdatem, {} );   
+						openmct.telemetry.subscribe(framesCounterDomainObj, framesCountUpdate, {} );   
 
                         // openmct.telemetry[0]
                         container.appendChild(vm.$mount().$el);
