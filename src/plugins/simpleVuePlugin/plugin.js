@@ -17,7 +17,7 @@ function SimpleVuePlugin() {
             canView: function (d) {
                 console.log("d param value:", d);
 
-                return d.type === 'example.telemetry';
+                return d.type === 'yamcs.telemetry';
             },
             view: function (domainObject) {
                 var vm;
