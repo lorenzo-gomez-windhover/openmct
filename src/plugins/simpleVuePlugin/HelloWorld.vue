@@ -1,6 +1,6 @@
 <template>
 <div class="example">
-<div>Missed Major Frame Count: {{ framesCounter.v }}</div>
+<div>Missed Major Frame Count: {{ framesCounter.value }}</div>
 <div>Command Count: {{ commandCounter.value }}</div>
 </div>
 </template>
@@ -9,7 +9,8 @@
 export default {
     data() {
         return {
-            tlm: ''
+            framesCounter: '',
+            commandCounter: ''
         	  };
     }
 };
