@@ -1,8 +1,7 @@
 <template>
 <div class="example">
-<div>id: {{ tlm.id }}</div>
 <div>timestamp: {{ tlm.timestamp }}</div>
-<div>value: {{ tlm.value }}</div>
+<div>tlm.id: {{ tlm.value }}</div>
 </div>
 </template>
 
