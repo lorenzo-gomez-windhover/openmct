@@ -27,18 +27,22 @@ function SimpleVuePlugin() {
                         vm = new Vue(HelloWorld);
                         console.log("vue obj:", vm);
 						
-						console.log("domainObject:");
+						console.log("domainObject:", domainObject);
+						
+						var commandCounterDomainObjId = {};
+						var framesCounterDomainObjId = {};
 						
 						var commandCounterDomainObj = {};
 						var framesCounterDomainObj = {};
 						
-						commandCounterDomainObj.key = '~ocpoc~sch~SCH_HkPacket_t_param.CmdCounter';
-						commandCounterDomainObj.namespace = 'taxonomy';
-						commandCounterDomainObj.type  = 'yamcs.telemetry';
+						commandCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.CmdCounter';
+						commandCounterDomainObjId.namespace = 'taxonomy';
 						
-						framesCounterDomainObj.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
-						framesCounterDomainObj.namespace = 'taxonomy';
-						framesCounterDomainObj.type  = 'yamcs.telemetry';
+						framesCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
+						framesCounterDomainObjId.namespace = 'taxonomy';
+						
+						openmct.objects.get(commandCounterDomainObjId).then(function(d){commandCounterDomainObj = d});
+						openmct.objects.get(framesCounterDomainObjId).then(function(d){framesCounterDomainObj = d});
 						
                         var commandCounterUpdate = function(tlmValue) {vm.commandCounter  = tlmValue;};
 						var framesCountUpdate = function(tlmValue){vm.framesCounter = tlmValue};
