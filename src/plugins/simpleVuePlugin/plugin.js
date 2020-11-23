@@ -27,18 +27,8 @@ function SimpleVuePlugin() {
                         vm = new Vue(HelloWorld);
                         console.log("vue obj:", vm);
 
-                        var myDomainObj = {}; 
-                        var domainObjId = {};
-                        domainObjId.namespace = 'example.taxonomy';
-                        domainObjId.key = 'prop.fuel';
-                        
-                        openmct.objects.get(domainObjId).then(function(d){ myDomainObj = d;});
-
-                        console.log("domainObj:", myDomainObj);
-
                         var tlmUpdate = function(tlmValue) {vm.tlm  = tlmValue};
                         openmct.telemetry.subscribe(domainObject, tlmUpdate, {});   
-
 
                         // openmct.telemetry[0]
                         container.appendChild(vm.$mount().$el);
