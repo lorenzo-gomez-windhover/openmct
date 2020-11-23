@@ -34,9 +34,11 @@ function SimpleVuePlugin() {
 						
 						commandCounterDomainObj.key = '~ocpoc~sch~SCH_HkPacket_t_param.CmdCounter';
 						commandCounterDomainObj.namespace = 'taxonomy';
+						commandCounterDomainObj.type  = 'yamcs.telemetry';
 						
 						framesCounterDomainObj.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
 						framesCounterDomainObj.namespace = 'taxonomy';
+						framesCounterDomainObj.type  = 'yamcs.telemetry';
 						
                         var commandCounterUpdate = function(tlmValue) {vm.commandCounter  = tlmValue;};
 						var framesCountUpdate = function(tlmValue){vm.framesCounter = tlmValue};
