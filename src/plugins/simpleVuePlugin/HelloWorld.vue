@@ -1,5 +1,5 @@
 <template>
-<div class="example">{{ tlm }}</div>
+<div class="example">id: {{ tlm.id }}</div>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {
     data() {
         return {
             tlm: ''
-        };
+        	  };
     }
 };
 </script>
