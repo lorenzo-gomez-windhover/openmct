@@ -35,11 +35,11 @@ function SimpleVuePlugin() {
 						var commandCounterDomainObj = {};
 						var framesCounterDomainObj = {};
 						
-						commandCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.CmdCounter';
 						commandCounterDomainObjId.namespace = 'taxonomy';
+						commandCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.CmdCounter';
 						
-						framesCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
 						framesCounterDomainObjId.namespace = 'taxonomy';
+						framesCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
 						
 						openmct.objects.get(commandCounterDomainObjId).then(function(d){commandCounterDomainObj = d});
 						openmct.objects.get(framesCounterDomainObjId).then(function(d){framesCounterDomainObj = d});
