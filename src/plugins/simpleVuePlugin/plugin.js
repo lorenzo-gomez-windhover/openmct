@@ -41,17 +41,20 @@ function SimpleVuePlugin() {
 						framesCounterDomainObjId.namespace = 'taxonomy';
 						framesCounterDomainObjId.key = '~ocpoc~sch~SCH_HkPacket_t_param.MissedMajorFrameCount';
 						
-						openmct.objects.get(commandCounterDomainObjId).then(function(d){commandCounterDomainObj = d});
-						openmct.objects.get(framesCounterDomainObjId).then(function(d){framesCounterDomainObj = d});
+						 var commandCounterUpdate = function(tlmValue) {vm.commandCounter  = tlmValue;};
+						 var framesCountUpdate = function(tlmValue){vm.framesCounter = tlmValue};
 						
-                        var commandCounterUpdate = function(tlmValue) {vm.commandCounter  = tlmValue;};
-						var framesCountUpdate = function(tlmValue){vm.framesCounter = tlmValue};
+						openmct.objects.get(commandCounterDomainObjId).then(function(d){
+							openmct.telemetry.subscribe(d, commandCounterUpdate, {});
+							});
+						openmct.objects.get(framesCounterDomainObjId).then(function(d){openmct.telemetry.subscribe(d, framesCountUpdate, {} )});
+						
 						
 						console.log("commandCounterDomainObj:", commandCounterDomainObj);
 						console.log("framesCounterDomainObj:", framesCounterDomainObj);
 
-                        openmct.telemetry.subscribe(commandCounterDomainObj, commandCounterUpdate, {});
-						openmct.telemetry.subscribe(framesCounterDomainObj, framesCountUpdate, {} );   
+                        
+						//openmct.telemetry.subscribe(framesCounterDomainObj, framesCountUpdate, {} );   
 
                         // openmct.telemetry[0]
                         container.appendChild(vm.$mount().$el);
